@@ -4,29 +4,32 @@ import {Link} from "react-router-dom";
 
 
 const Trailer =({Films,match}) => {
-  const [Movie, setMovie]= useState ({});
+  const [movie, setMovie]= useState ({});
+  
+  console.log(Films)
+  // console.log(movie)
+
   useEffect(()=>{
-  const item =Films.find((Films)=> Films.id ===match.params.id);
-  Movie(item);
-  },);
+  setMovie(Films.find((film)=> film.id ===match.params.id));
+  },[movie]);
 
  return(
 
 <div className="div1">
-  setMovie={setMovie};
+  {/* setMovie={setMovie}; */}
   <Link to="/">
     <button type="button" className="home-btn" >
      home page 
     </button>
   </Link>
-  <span className="movie-title" >{Movie.Title} 
+  <span className="movie-title" >{movie.Title} 
 
   </span>
 <div className="movie-video" >
 <frame
   width="500"
   height="300"
-  src= {Movie.Trailer}
+  src= {movie.Trailer}
  >
 </frame>
 </div>

@@ -83,16 +83,16 @@ render= {()=> {
 
 }
 />
-   <Route   path='/FilmDescription/:id' 
+   {/* <Route   path='/FilmDescription/:id' 
    render= {(props)=> {
      return <FilmDescription {...props } Films={Films} />
    }}>  
     
-     </Route>
+     </Route> */}
 
-      <Route  path="/Trailer"> 
+      {/* <Route  path="/Trailer"> 
      <Trailer Films={Films}/>
-       </Route>
+       </Route> */}
 
      <Route path='/Trailer/:id' 
  render= {(props)=> {

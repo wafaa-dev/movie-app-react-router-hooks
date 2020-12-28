@@ -1,42 +1,41 @@
-import React ,{useState} from "react";
+import React, { useState } from "react";
 
-import {Link} from 'react-router-dom';
-import MovieCard from  './MovieCard';
-import './Style.css';
+import { Link } from "react-router-dom";
+import MovieCard from "./MovieCard";
+import "./Style.css";
 
-const MovieList= ({ Films, searchByName, searchByRate})  => {
-  const [Movie, setMovie]= useState ({});
-    return (
-    <div className="my-List"
+const MovieList = ({ Films, searchByName, searchByRate }) => {
+  // const [Movie, setMovie]= useState ({});
+  return (
+    <div
+      className="my-List"
       style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-evenly',
-        flexWrap: 'wrap',
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-evenly",
+        flexWrap: "wrap",
       }}
-> 
-{Films.filter( (e)=> e.Title.toLowerCase().includes(searchByName.toLowerCase().trim()) && e.Rate >= searchByRate)
-.map((e,index) =>( 
-  <Link to ={`/Trailer/${e.id}/${e.Title}`}> 
-  
-<MovieCard 
-key={e.id}
-poster={e.PosterUrl}
-title={e.Title}
-rating={e.Rate}
-description={e.Description}
-Movie={Movie}
-setMovie={setMovie}
-e={e}
-   
-/>
-</Link>
-	
-  ))
-	
-
-}; 
-</div>
-    )
-}
-export default MovieList ;
+    >
+      {Films.filter(
+        (e) =>
+          e.Title.toLowerCase().includes(searchByName.toLowerCase().trim()) &&
+          e.Rate >= searchByRate
+      ).map((e, index) => (
+        <Link to={`/Trailer/${e.id}/${e.Title}`}>
+          <MovieCard
+            key={e.id}
+            poster={e.PosterUrl}
+            title={e.Title}
+            rating={e.Rate}
+            description={e.Description}
+            // Movie={Movie}
+            // setMovie={setMovie}
+            // e={e}
+          />
+        </Link>
+      ))}
+      
+    </div>
+  );
+};
+export default MovieList;
