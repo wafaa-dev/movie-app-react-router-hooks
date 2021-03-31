@@ -1,44 +1,46 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
-@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 body {
-  background: #4e4e4e;
+  background: #d18fc8;
 }
-
 .card {
-  display: flex;
-  flex-direction: column;
-
+  height: 900px;
+  width: 350px;
   background: transparent;
+  align-items: center;
   margin: 50px 0;
   border-radius: 10px;
-
   box-shadow: 0px 20px 30px 3px rgba(0, 0, 0, 0.2);
   transform: scale(0.95);
   transition: all 0.5s;
   text-align: center;
 }
+.container {
+  display: inline-grid;
+}
+.description {
+  color: #1e1b26;
+  text-decoration: none;
+  margin: 0 50px;
+}
 .card:hover {
   transform: scale(1);
   box-shadow: 0 5px 10px -12.125px rgba(0, 0, 0, 0.2);
 }
-
-.details1 {
-  text-align: center;
-  height: 600px;
-
-  overflow: hidden;
-  background: transparent;
-}
-
 .poster {
   text-align: center;
-  /* width: 100%;
-  height: 100%; */
+  height: 500px;
+  width: 350px;
+  object-fit: "contain";
   overflow: hidden;
 }
 
 .poster img {
   border-radius: 10px;
+}
+.rate {
+  position: absolute;
+  bottom: 20px;
+  text-align: center;
+  color: #234552;
 }
 
 h1 {
@@ -51,26 +53,17 @@ h1 {
   padding: 0 0 0 40px;
   letter-spacing: 1px;
 }
-h4 {
-  color: rgb(32, 140, 202);
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  text-align: center;
-  font-size: 40px;
-  margin: 30px 0 0 0;
-  padding: 0 0 0 40px;
-  letter-spacing: 1px;
-}
+
 .trailer {
   font-size: 30px;
   color: black;
   text-decoration: underline;
 }
-.card_right__rating {
+/* .card_right__rating {
   margin: 10px 0 10px 40px;
   color: #ffda00;
   font-size: 2rem;
-}
+} */
 .Add-btn-container {
   text-align: center;
 }
@@ -78,12 +71,12 @@ h4 {
   background-color: black;
   border: transparent;
   color: white;
-  font-size: 80px;
+  font-size: 20px;
   padding: 8px 20px;
   margin: 30px 0;
   cursor: pointer;
-  width: 300px;
-  height: 180px;
+  width: 200px;
+  height: 120px;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -100,7 +93,7 @@ h4 {
 .Add-btn:focus {
   outline: 0;
 }
-/* add movie modal */
+
 .addMovie-h1 {
   color: #1e1b26;
 }
@@ -165,7 +158,10 @@ form textarea:focus {
 .Modal-btn:focus {
   outline: 0;
 }
-
+.search-container {
+  display: flex;
+  flex-direction: column;
+}
 .search {
   margin: 40px 0px;
   display: flex;
@@ -185,6 +181,16 @@ form textarea:focus {
   outline: 0;
 }
 .rate-search {
-  color: #46a1c5;
-  font-size: 1.5rem;
+  color: #234552;
+  font-size: 2rem;
+}
+.trailer-container {
+  justify-content: space-between;
+  align-items: center;
+}
+.movie {
+  margin: 15px 0;
+}
+.rating {
+  text-align: center;
 }

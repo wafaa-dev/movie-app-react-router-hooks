@@ -1,37 +1,32 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
 import FilmRate from "./FilmRate";
 import "./Style.css";
-
-const MovieCard = ({ title, poster, rating, date }) => {
-  // const MovieCard =(Film)  => {
+const MovieCard = ({ title, poster, rating, date, id,description,trailer }) => {
 
   return (
+    <div className="container">
     <div className="card">
-      <div className="poster">
-        <img src={poster} alt="filmposter" />
+      <div className="title"  >
+        <p style={{color:'#234552',fontFamily:'fantasy',fontWeight:'bold',fontSize:'40px', textAlign:"center" ,TextDecoration:"none",  overflow: 'hidden',
+  background: 'transparent',marginBottom:'0',paddingBottom:'0' }} > {title} </p>
       </div>
-      <div className="details1">
-        <h1> {title} </h1>
-
-        <h3 className="filmDescription">
-          <Link to="/FilmDescription/:id"> see film description </Link>{" "}
-        </h3>
-
-        <h5 className="trailer">
-          {" "}
-          <Link to="/Trailer/:id"> click here to watch the trailer </Link>{" "}
-        </h5>
-      </div>
-
-      <div className="details2">
+        <div className="date" style={{color:'lila',fontSize:'20px',marginTop:'0',paddingTop:'0'}}>
         {date} <br />
-        <div>
-          <FilmRate rating={rating} />
-        </div>
       </div>
+        <div className="poster">
+        <img src={poster} alt="filmposter" style={{maxHeight: '100%' , maxWidth: '100%' , objectFit: 'contain', marginTop:'20px',}}/>
+      </div>
+      <div className='description'>
+      <p> {description}  </p>
+      </div>
+<div className='rating'>
+       <div className="rate" >
+          <FilmRate key={id} rating={rating} />
+        </div>
+</div>
     </div>
+   </div>
   );
 };
 export default MovieCard;

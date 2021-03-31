@@ -1,11 +1,8 @@
-import React ,{useState} from 'react';
+	import React ,{useState} from 'react';
 import Modal from 'react-modal';
 import FilmRate from './FilmRate';
 import './Style.css';
 Modal.setAppElement('#root');
-
-
-
 
 const NewMovie=({addMovie})=> {
 const [show, setShow] = useState(false) ;  
@@ -45,7 +42,7 @@ setRate('0');
           <div>
       <div className="Add-btn-container">
         <button className="Add-btn" onClick={open}>
-          ADD
+          Add new movie
         </button>
         <Modal
           className="add-modal"

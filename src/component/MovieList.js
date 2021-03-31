@@ -1,19 +1,14 @@
-import React, { useState } from "react";
-
+import React from "react";
 import { Link } from "react-router-dom";
 import MovieCard from "./MovieCard";
 import "./Style.css";
-
 const MovieList = ({ Films, searchByName, searchByRate }) => {
-  // const [Movie, setMovie]= useState ({});
+
   return (
     <div
-      className="my-List"
+      className="my-List" 
       style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-evenly",
-        flexWrap: "wrap",
+        textAlign:"center",
       }}
     >
       {Films.filter(
@@ -21,20 +16,19 @@ const MovieList = ({ Films, searchByName, searchByRate }) => {
           e.Title.toLowerCase().includes(searchByName.toLowerCase().trim()) &&
           e.Rate >= searchByRate
       ).map((e, index) => (
-        <Link to={`/Trailer/${e.id}/${e.Title}`}>
+        <Link to={`/Trailer/${e.id}/${e.Title}`} style={{textDecoration:'none'}}>
           <MovieCard
-            key={e.id}
+            key={index}
             poster={e.PosterUrl}
             title={e.Title}
             rating={e.Rate}
             description={e.Description}
-            // Movie={Movie}
-            // setMovie={setMovie}
-            // e={e}
+            date={e.Date}
+            id={e.id}
+            trailer={e.Trailer}
           />
         </Link>
       ))}
-      
     </div>
   );
 };

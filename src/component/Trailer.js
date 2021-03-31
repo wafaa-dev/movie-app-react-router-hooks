@@ -1,42 +1,41 @@
-import React ,{useState, useEffect} from "react";
-import {Link} from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-
-
-const Trailer =({Films,match}) => {
-  const [movie, setMovie]= useState ({});
+const Trailer = ({ films, match }) => {
+  const [theMovie, setTheMovie] = useState({});
+  useEffect(() => {
+    const item = films.find((e) => {return e.id === +match.params.id;});
+console.log(item)
+    setTheMovie(item);
+  }, [films, match.params.id]);
   
-  console.log(Films)
-  // console.log(movie)
-
-  useEffect(()=>{
-  setMovie(Films.find((film)=> film.id ===match.params.id));
-  },[movie]);
-
- return(
-
-<div className="div1">
-  {/* setMovie={setMovie}; */}
-  <Link to="/">
-    <button type="button" className="home-btn" >
-     home page 
-    </button>
-  </Link>
-  <span className="movie-title" >{movie.Title} 
-
-  </span>
-<div className="movie-video" >
-<frame
-  width="500"
-  height="300"
-  src= {movie.Trailer}
- >
-</frame>
-</div>
-</div>
-
-  
- )
-}
-export default Trailer
-
+  return (
+    <div className="div1" style={{textAlign:'center'}}>
+      <Link to="/">
+        <button type="button" className="home-btn" style={{backgroundColor:'#b498c2',color:'black', alignItems:"center",height:'30px' , width:'150px'}}>
+          home page
+        </button>
+      </Link>
+      <div className="trailer-container">
+        <h1 className="movie-title"> {theMovie.Title} 
+        
+        </h1>
+        <div className="movie-container" style={{textAlign:'center'}} >
+              <iframe
+        title="this is the title"
+          className="movie"
+          width="700"
+          height="394"
+          src={theMovie.Trailer}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+           </div>
+    
+        
+      </div>
+    </div>
+  );
+};
+export default Trailer;
